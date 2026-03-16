@@ -1,178 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>🔥 Battle Shooter</title>
+<title>3D Battle Arena</title>
 <style>
-
 body{
 margin:0;
-background:black;
 overflow:hidden;
-font-family:Arial;
+background:black;
 color:white;
-text-align:center;
+font-family:Arial;
 }
 
-#score{
+#info{
 position:absolute;
-top:10px;
-left:10px;
+top:20px;
+left:20px;
 font-size:20px;
 }
-
-canvas{
-background:#111;
-display:block;
-margin:auto;
-}
-
 </style>
 </head>
 
 <body>
 
-<div id="score">Score: 0</div>
-<canvas id="game"></canvas>
+<div id="info">WASD to move | Mouse to look</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.0/build/three.min.js"></script>
 
 <script>
 
-let canvas = document.getElementById("game");
-let ctx = canvas.getContext("2d");
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-let player = {
-x:canvas.width/2,
-y:canvas.height/2,
-size:20,
-speed:5
-};
+let light = new THREE.PointLight(0xffffff,1);
+light.position.set(10,10,10);
+scene.add(light);
 
-let bullets = [];
-let enemies = [];
-let score = 0;
+let floorGeometry = new THREE.PlaneGeometry(100,100);
+let floorMaterial = new THREE.MeshBasicMaterial({color:0x333333});
+let floor = new THREE.Mesh(floorGeometry,floorMaterial);
+floor.rotation.x = -Math.PI/2;
+scene.add(floor);
+
+let playerGeometry = new THREE.BoxGeometry(1,2,1);
+let playerMaterial = new THREE.MeshBasicMaterial({color:0x00ff00});
+let player = new THREE.Mesh(playerGeometry,playerMaterial);
+player.position.y = 1;
+scene.add(player);
+
+camera.position.set(0,3,5);
+
+let enemyGeometry = new THREE.BoxGeometry(1,2,1);
+let enemyMaterial = new THREE.MeshBasicMaterial({color:0xff0000});
+let enemy = new THREE.Mesh(enemyGeometry,enemyMaterial);
+enemy.position.set(5,1,0);
+scene.add(enemy);
 
 let keys = {};
 
 document.addEventListener("keydown",e=>keys[e.key]=true);
 document.addEventListener("keyup",e=>keys[e.key]=false);
 
-canvas.addEventListener("click",shoot);
-
-function shoot(e){
-
-let angle = Math.atan2(
-e.clientY-player.y,
-e.clientX-player.x
-);
-
-bullets.push({
-x:player.x,
-y:player.y,
-dx:Math.cos(angle)*8,
-dy:Math.sin(angle)*8,
-size:5
-});
-
-}
-
-function spawnEnemy(){
-
-enemies.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-size:20,
-speed:1.5
-});
-
-}
-
-setInterval(spawnEnemy,2000);
-
 function update(){
 
-if(keys["w"] || keys["ArrowUp"]) player.y -= player.speed;
-if(keys["s"] || keys["ArrowDown"]) player.y += player.speed;
-if(keys["a"] || keys["ArrowLeft"]) player.x -= player.speed;
-if(keys["d"] || keys["ArrowRight"]) player.x += player.speed;
+if(keys["w"]) player.position.z -= 0.1;
+if(keys["s"]) player.position.z += 0.1;
+if(keys["a"]) player.position.x -= 0.1;
+if(keys["d"]) player.position.x += 0.1;
 
-bullets.forEach(b=>{
-b.x += b.dx;
-b.y += b.dy;
-});
+enemy.position.x += Math.sin(Date.now()*0.002)*0.02;
 
-enemies.forEach((enemy,ei)=>{
+camera.position.x = player.position.x;
+camera.position.z = player.position.z + 5;
 
-let angle = Math.atan2(
-player.y-enemy.y,
-player.x-enemy.x
-);
-
-enemy.x += Math.cos(angle)*enemy.speed;
-enemy.y += Math.sin(angle)*enemy.speed;
-
-bullets.forEach((b,bi)=>{
-
-let dist = Math.hypot(enemy.x-b.x,enemy.y-b.y);
-
-if(dist < enemy.size){
-
-enemies.splice(ei,1);
-bullets.splice(bi,1);
-
-score++;
-document.getElementById("score").innerText="Score: "+score;
+camera.lookAt(player.position);
 
 }
 
-});
+function animate(){
 
-let dist = Math.hypot(enemy.x-player.x,enemy.y-player.y);
+requestAnimationFrame(animate);
 
-if(dist < enemy.size){
-
-alert("💀 Game Over\nScore: "+score);
-location.reload();
-
-}
-
-});
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="lime";
-ctx.beginPath();
-ctx.arc(player.x,player.y,player.size,0,Math.PI*2);
-ctx.fill();
-
-ctx.fillStyle="yellow";
-bullets.forEach(b=>{
-ctx.beginPath();
-ctx.arc(b.x,b.y,b.size,0,Math.PI*2);
-ctx.fill();
-});
-
-ctx.fillStyle="red";
-enemies.forEach(e=>{
-ctx.beginPath();
-ctx.arc(e.x,e.y,e.size,0,Math.PI*2);
-ctx.fill();
-});
-
-}
-
-function gameLoop(){
 update();
-draw();
-requestAnimationFrame(gameLoop);
+
+renderer.render(scene,camera);
+
 }
 
-gameLoop();
+animate();
 
 </script>
 
