@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Utsav Vagdiya | Frontend Developer</title>
 
 <style>
@@ -9,13 +12,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, sans-serif;
 }
 
 body{
 background:#0f172a;
 color:white;
 }
+
+/* NAVBAR */
 
 header{
 display:flex;
@@ -25,11 +30,20 @@ padding:20px 60px;
 background:#1e293b;
 }
 
+.logo img{
+height:40px;
+width:40px;
+object-fit:contain;
+}
+
 nav a{
 color:white;
 text-decoration:none;
-margin-left:20px;
+margin-left:25px;
+font-size:16px;
 }
+
+/* HERO SECTION */
 
 .hero{
 height:80vh;
@@ -41,23 +55,26 @@ text-align:center;
 }
 
 .hero h1{
-font-size:50px;
+font-size:48px;
 margin-bottom:10px;
 }
 
 .hero p{
-font-size:20px;
 color:#94a3b8;
+font-size:20px;
 }
 
-button{
+.hero button{
 margin-top:20px;
 padding:12px 25px;
 background:#38bdf8;
 border:none;
 border-radius:6px;
 cursor:pointer;
+font-size:16px;
 }
+
+/* SECTIONS */
 
 section{
 padding:80px 60px;
@@ -76,6 +93,8 @@ background:#1e293b;
 padding:15px 25px;
 border-radius:8px;
 }
+
+/* PROJECTS */
 
 .projects{
 display:flex;
@@ -97,25 +116,24 @@ transition:0.3s;
 transform:translateY(-10px);
 }
 
+/* FOOTER */
+
 footer{
 text-align:center;
 padding:30px;
 background:#1e293b;
 }
-.logo img{
-height:40px;
-width:40px;
-object-fit:contain;
-}
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <div class="logo">
-<img src="1.png" alt="Utsav Logo">
+<img src="logo.png" alt="Utsav Logo">
 </div>
 
 <nav>
@@ -124,11 +142,13 @@ object-fit:contain;
 <a href="#">Projects</a>
 <a href="#">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero">
 
 <h1>Hi, I'm Utsav Vagdiya</h1>
+
 <p>Frontend Developer | HTML CSS JavaScript</p>
 
 <button>View Projects</button>
@@ -140,8 +160,8 @@ object-fit:contain;
 <h2>About Me</h2>
 
 <p>
-I am a passionate frontend developer who builds responsive
-and modern websites using HTML, CSS and JavaScript.
+I am a passionate frontend developer who builds modern
+and responsive websites using HTML, CSS and JavaScript.
 </p>
 
 </section>
@@ -173,7 +193,7 @@ and modern websites using HTML, CSS and JavaScript.
 
 <div class="card">
 <h3>Calculator</h3>
-<p>JavaScript calculator app.</p>
+<p>JavaScript calculator application.</p>
 </div>
 
 <div class="card">
@@ -200,5 +220,4 @@ and modern websites using HTML, CSS and JavaScript.
 </footer>
 
 </body>
-
 </html>
