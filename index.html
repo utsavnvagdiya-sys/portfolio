@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>🔥 Battle Game</title>
+<title>🔥 Battle Shooter</title>
 <style>
 
 body{
 margin:0;
 background:black;
+overflow:hidden;
+font-family:Arial;
 color:white;
 text-align:center;
-font-family:Arial;
+}
+
+#score{
+position:absolute;
+top:10px;
+left:10px;
+font-size:20px;
 }
 
 canvas{
 background:#111;
 display:block;
 margin:auto;
-border:3px solid red;
-}
-
-h1{
-color:orange;
 }
 
 </style>
@@ -28,60 +31,113 @@ color:orange;
 
 <body>
 
-<h1>🔥 Battle Arena</h1>
-<p>Arrow keys se move karo aur enemies se bachho</p>
-
-<canvas id="game" width="600" height="400"></canvas>
+<div id="score">Score: 0</div>
+<canvas id="game"></canvas>
 
 <script>
 
 let canvas = document.getElementById("game");
 let ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 let player = {
-x:300,
-y:200,
+x:canvas.width/2,
+y:canvas.height/2,
 size:20,
 speed:5
 };
 
-let enemy = {
-x:100,
-y:100,
-size:20,
-speed:2
-};
+let bullets = [];
+let enemies = [];
+let score = 0;
 
 let keys = {};
 
-document.addEventListener("keydown", e=>{
-keys[e.key]=true;
+document.addEventListener("keydown",e=>keys[e.key]=true);
+document.addEventListener("keyup",e=>keys[e.key]=false);
+
+canvas.addEventListener("click",shoot);
+
+function shoot(e){
+
+let angle = Math.atan2(
+e.clientY-player.y,
+e.clientX-player.x
+);
+
+bullets.push({
+x:player.x,
+y:player.y,
+dx:Math.cos(angle)*8,
+dy:Math.sin(angle)*8,
+size:5
 });
 
-document.addEventListener("keyup", e=>{
-keys[e.key]=false;
+}
+
+function spawnEnemy(){
+
+enemies.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:20,
+speed:1.5
 });
+
+}
+
+setInterval(spawnEnemy,2000);
 
 function update(){
 
-if(keys["ArrowUp"]) player.y -= player.speed;
-if(keys["ArrowDown"]) player.y += player.speed;
-if(keys["ArrowLeft"]) player.x -= player.speed;
-if(keys["ArrowRight"]) player.x += player.speed;
+if(keys["w"] || keys["ArrowUp"]) player.y -= player.speed;
+if(keys["s"] || keys["ArrowDown"]) player.y += player.speed;
+if(keys["a"] || keys["ArrowLeft"]) player.x -= player.speed;
+if(keys["d"] || keys["ArrowRight"]) player.x += player.speed;
 
-enemy.x += enemy.speed;
+bullets.forEach(b=>{
+b.x += b.dx;
+b.y += b.dy;
+});
 
-if(enemy.x > canvas.width) enemy.x = 0;
+enemies.forEach((enemy,ei)=>{
 
-if(
-player.x < enemy.x + enemy.size &&
-player.x + player.size > enemy.x &&
-player.y < enemy.y + enemy.size &&
-player.y + player.size > enemy.y
-){
-alert("💀 Game Over");
-location.reload();
+let angle = Math.atan2(
+player.y-enemy.y,
+player.x-enemy.x
+);
+
+enemy.x += Math.cos(angle)*enemy.speed;
+enemy.y += Math.sin(angle)*enemy.speed;
+
+bullets.forEach((b,bi)=>{
+
+let dist = Math.hypot(enemy.x-b.x,enemy.y-b.y);
+
+if(dist < enemy.size){
+
+enemies.splice(ei,1);
+bullets.splice(bi,1);
+
+score++;
+document.getElementById("score").innerText="Score: "+score;
+
 }
+
+});
+
+let dist = Math.hypot(enemy.x-player.x,enemy.y-player.y);
+
+if(dist < enemy.size){
+
+alert("💀 Game Over\nScore: "+score);
+location.reload();
+
+}
+
+});
 
 }
 
@@ -90,10 +146,23 @@ function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
 ctx.fillStyle="lime";
-ctx.fillRect(player.x,player.y,player.size,player.size);
+ctx.beginPath();
+ctx.arc(player.x,player.y,player.size,0,Math.PI*2);
+ctx.fill();
+
+ctx.fillStyle="yellow";
+bullets.forEach(b=>{
+ctx.beginPath();
+ctx.arc(b.x,b.y,b.size,0,Math.PI*2);
+ctx.fill();
+});
 
 ctx.fillStyle="red";
-ctx.fillRect(enemy.x,enemy.y,enemy.size,enemy.size);
+enemies.forEach(e=>{
+ctx.beginPath();
+ctx.arc(e.x,e.y,e.size,0,Math.PI*2);
+ctx.fill();
+});
 
 }
 
