@@ -21,7 +21,6 @@ color:white;
 header{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:20px 40px;
 background:#111;
 }
@@ -32,12 +31,6 @@ color:#00ffff;
 font-weight:bold;
 }
 
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:white;
-}
-
 .hero{
 height:90vh;
 display:flex;
@@ -45,19 +38,12 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:radial-gradient(circle,#111,#000);
 }
 
 .hero h1{
 font-size:60px;
 color:#00ffff;
 text-shadow:0 0 20px #00ffff;
-}
-
-.hero p{
-margin-top:20px;
-font-size:20px;
-color:#ccc;
 }
 
 .play-btn{
@@ -70,93 +56,88 @@ color:black;
 cursor:pointer;
 border-radius:30px;
 box-shadow:0 0 20px #00ffff;
-transition:0.3s;
 }
 
-.play-btn:hover{
-transform:scale(1.1);
-}
-
-.games{
-padding:60px;
-display:flex;
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
 justify-content:center;
-gap:30px;
-flex-wrap:wrap;
+align-items:center;
 }
 
-.card{
+.popup-content{
 background:#111;
-padding:30px;
+padding:40px;
 border-radius:10px;
-width:250px;
 text-align:center;
-transition:0.3s;
 border:1px solid #00ffff;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #00ffff;
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:#111;
-margin-top:40px;
+.close{
+cursor:pointer;
+color:red;
+font-size:20px;
+position:absolute;
+top:20px;
+right:30px;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">NEON GAMER</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Games</a>
-<a href="#">Community</a>
-<a href="#">Contact</a>
-</nav>
-
 </header>
 
 <section class="hero">
 
 <h1>Enter The Gaming Arena</h1>
-<p>Battle. Survive. Become Legend.</p>
 
-<button class="play-btn">PLAY NOW</button>
-
-</section>
-
-<section class="games">
-
-<div class="card">
-<h2>Battle Royale</h2>
-<p>Fight against 100 players.</p>
-</div>
-
-<div class="card">
-<h2>Weapon Loadout</h2>
-<p>Customize your guns.</p>
-</div>
-
-<div class="card">
-<h2>Leaderboards</h2>
-<p>Top players worldwide.</p>
-</div>
+<button class="play-btn" onclick="openPopup()">PLAY NOW</button>
 
 </section>
 
-<footer>
-© 2026 Neon Gamer
-</footer>
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<h2>🔥 Welcome Gamer</h2>
+<p>Select your action</p>
+
+<br>
+
+<button onclick="startGame()">Start Game</button>
+
+<br><br>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openPopup(){
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+function startGame(){
+alert("Game Starting Soon 🚀");
+}
+
+</script>
 
 </body>
 </html>
