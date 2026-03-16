@@ -1,98 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>3D Battle Arena</title>
+<meta charset="UTF-8">
+<title>Neon Gamer</title>
+
 <style>
-body{
+
+*{
 margin:0;
-overflow:hidden;
-background:black;
-color:white;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
 }
 
-#info{
-position:absolute;
-top:20px;
-left:20px;
-font-size:20px;
+body{
+background:#0a0a0a;
+color:white;
 }
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:#111;
+}
+
+.logo{
+font-size:26px;
+color:#00ffff;
+font-weight:bold;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+}
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle,#111,#000);
+}
+
+.hero h1{
+font-size:60px;
+color:#00ffff;
+text-shadow:0 0 20px #00ffff;
+}
+
+.hero p{
+margin-top:20px;
+font-size:20px;
+color:#ccc;
+}
+
+.play-btn{
+margin-top:30px;
+padding:15px 40px;
+font-size:18px;
+border:none;
+background:#00ffff;
+color:black;
+cursor:pointer;
+border-radius:30px;
+box-shadow:0 0 20px #00ffff;
+transition:0.3s;
+}
+
+.play-btn:hover{
+transform:scale(1.1);
+}
+
+.games{
+padding:60px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#111;
+padding:30px;
+border-radius:10px;
+width:250px;
+text-align:center;
+transition:0.3s;
+border:1px solid #00ffff;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #00ffff;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+margin-top:40px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div id="info">WASD to move | Mouse to look</div>
+<header>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.150.0/build/three.min.js"></script>
+<div class="logo">NEON GAMER</div>
 
-<script>
+<nav>
+<a href="#">Home</a>
+<a href="#">Games</a>
+<a href="#">Community</a>
+<a href="#">Contact</a>
+</nav>
 
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+</header>
 
-let renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth,window.innerHeight);
-document.body.appendChild(renderer.domElement);
+<section class="hero">
 
-let light = new THREE.PointLight(0xffffff,1);
-light.position.set(10,10,10);
-scene.add(light);
+<h1>Enter The Gaming Arena</h1>
+<p>Battle. Survive. Become Legend.</p>
 
-let floorGeometry = new THREE.PlaneGeometry(100,100);
-let floorMaterial = new THREE.MeshBasicMaterial({color:0x333333});
-let floor = new THREE.Mesh(floorGeometry,floorMaterial);
-floor.rotation.x = -Math.PI/2;
-scene.add(floor);
+<button class="play-btn">PLAY NOW</button>
 
-let playerGeometry = new THREE.BoxGeometry(1,2,1);
-let playerMaterial = new THREE.MeshBasicMaterial({color:0x00ff00});
-let player = new THREE.Mesh(playerGeometry,playerMaterial);
-player.position.y = 1;
-scene.add(player);
+</section>
 
-camera.position.set(0,3,5);
+<section class="games">
 
-let enemyGeometry = new THREE.BoxGeometry(1,2,1);
-let enemyMaterial = new THREE.MeshBasicMaterial({color:0xff0000});
-let enemy = new THREE.Mesh(enemyGeometry,enemyMaterial);
-enemy.position.set(5,1,0);
-scene.add(enemy);
+<div class="card">
+<h2>Battle Royale</h2>
+<p>Fight against 100 players.</p>
+</div>
 
-let keys = {};
+<div class="card">
+<h2>Weapon Loadout</h2>
+<p>Customize your guns.</p>
+</div>
 
-document.addEventListener("keydown",e=>keys[e.key]=true);
-document.addEventListener("keyup",e=>keys[e.key]=false);
+<div class="card">
+<h2>Leaderboards</h2>
+<p>Top players worldwide.</p>
+</div>
 
-function update(){
+</section>
 
-if(keys["w"]) player.position.z -= 0.1;
-if(keys["s"]) player.position.z += 0.1;
-if(keys["a"]) player.position.x -= 0.1;
-if(keys["d"]) player.position.x += 0.1;
-
-enemy.position.x += Math.sin(Date.now()*0.002)*0.02;
-
-camera.position.x = player.position.x;
-camera.position.z = player.position.z + 5;
-
-camera.lookAt(player.position);
-
-}
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-update();
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
-</script>
+<footer>
+© 2026 Neon Gamer
+</footer>
 
 </body>
 </html>
