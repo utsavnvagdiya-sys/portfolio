@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pro Gaming Website</title>
+<title>Cricket Gaming Hub</title>
 
 <style>
 
@@ -11,13 +11,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
 
 body{
 background:#0f172a;
 color:white;
 }
+
+/* HEADER */
 
 header{
 display:flex;
@@ -33,16 +35,7 @@ font-weight:bold;
 color:#22c55e;
 }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-size:18px;
-}
-
-nav a:hover{
-color:#22c55e;
-}
+/* HERO */
 
 .hero{
 height:90vh;
@@ -51,23 +44,16 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(135deg,#020617,#0f172a);
 }
 
 .hero h1{
 font-size:60px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:20px;
 margin-bottom:30px;
-color:#94a3b8;
 }
 
 .play-btn{
 padding:15px 40px;
-font-size:20px;
+font-size:22px;
 border:none;
 background:#22c55e;
 color:black;
@@ -78,33 +64,35 @@ transition:0.3s;
 
 .play-btn:hover{
 transform:scale(1.1);
-background:#4ade80;
 }
 
-.popup{
+/* FULLSCREEN GAME */
+
+.game-screen{
 display:none;
 position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:#020617;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 20px rgba(0,0,0,0.5);
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:999;
 }
 
-.popup iframe{
-width:600px;
-height:400px;
+.game-screen iframe{
+width:100%;
+height:100%;
 border:none;
 }
 
-.close{
+.close-btn{
 position:absolute;
-top:10px;
-right:15px;
-font-size:20px;
+top:20px;
+right:30px;
+font-size:30px;
+color:white;
 cursor:pointer;
+z-index:1000;
 }
 
 </style>
@@ -113,43 +101,35 @@ cursor:pointer;
 <body>
 
 <header>
-<div class="logo">🔥 ProGame</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Games</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</nav>
+<div class="logo">🏏 Cricket Hub</div>
 </header>
 
 <section class="hero">
 
-<h1>Ultimate Gaming Hub</h1>
-<p>Play amazing games instantly in your browser</p>
+<h1>Play Cricket Game</h1>
 
-<button class="play-btn" onclick="openGame()">PLAY NOW</button>
+<button class="play-btn" onclick="openGame()">
+PLAY NOW
+</button>
 
 </section>
 
+<div class="game-screen" id="gameScreen">
 
-<div class="popup" id="gamePopup">
+<div class="close-btn" onclick="closeGame()">✖</div>
 
-<span class="close" onclick="closeGame()">✖</span>
-
-<iframe src="https://www.crazygames.com/embed/mini-golf-club"></iframe>
+<iframe src="https://www.crazygames.com/embed/cricket-hero"></iframe>
 
 </div>
-
 
 <script>
 
 function openGame(){
-document.getElementById("gamePopup").style.display="block";
+document.getElementById("gameScreen").style.display="block";
 }
 
 function closeGame(){
-document.getElementById("gamePopup").style.display="none";
+document.getElementById("gameScreen").style.display="none";
 }
 
 </script>
