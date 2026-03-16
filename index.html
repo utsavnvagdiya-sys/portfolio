@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🔥 Battle Game</title>
+<style>
 
+body{
+margin:0;
+background:black;
+color:white;
+text-align:center;
+font-family:Arial;
+}
+
+canvas{
+background:#111;
+display:block;
+margin:auto;
+border:3px solid red;
+}
+
+h1{
+color:orange;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Battle Arena</h1>
+<p>Arrow keys se move karo aur enemies se bachho</p>
+
+<canvas id="game" width="600" height="400"></canvas>
+
+<script>
+
+let canvas = document.getElementById("game");
+let ctx = canvas.getContext("2d");
+
+let player = {
+x:300,
+y:200,
+size:20,
+speed:5
+};
+
+let enemy = {
+x:100,
+y:100,
+size:20,
+speed:2
+};
+
+let keys = {};
+
+document.addEventListener("keydown", e=>{
+keys[e.key]=true;
+});
+
+document.addEventListener("keyup", e=>{
+keys[e.key]=false;
+});
+
+function update(){
+
+if(keys["ArrowUp"]) player.y -= player.speed;
+if(keys["ArrowDown"]) player.y += player.speed;
+if(keys["ArrowLeft"]) player.x -= player.speed;
+if(keys["ArrowRight"]) player.x += player.speed;
+
+enemy.x += enemy.speed;
+
+if(enemy.x > canvas.width) enemy.x = 0;
+
+if(
+player.x < enemy.x + enemy.size &&
+player.x + player.size > enemy.x &&
+player.y < enemy.y + enemy.size &&
+player.y + player.size > enemy.y
+){
+alert("💀 Game Over");
+location.reload();
+}
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="lime";
+ctx.fillRect(player.x,player.y,player.size,player.size);
+
+ctx.fillStyle="red";
+ctx.fillRect(enemy.x,enemy.y,enemy.size,enemy.size);
+
+}
+
+function gameLoop(){
+update();
+draw();
+requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
+</script>
+
+</body>
+</html>
