@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ultra Hot Website</title>
+<title>Super Ultra Website</title>
 
 <style>
 
@@ -12,20 +13,20 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial;
 }
 
 body{
-height:100vh;
+
 background:linear-gradient(270deg,#ff4ecd,#4facfe,#43e97b);
 background-size:600% 600%;
-animation:gradient 10s ease infinite;
+animation:bgmove 10s infinite;
 color:white;
 }
 
 /* animated background */
 
-@keyframes gradient{
+@keyframes bgmove{
 
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
@@ -62,16 +63,15 @@ margin-left:25px;
 
 nav ul li a{
 
-color:white;
 text-decoration:none;
-font-size:18px;
+color:white;
 }
 
 /* HERO */
 
 .hero{
 
-height:80vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -115,13 +115,13 @@ transform:scale(1.1);
 display:flex;
 justify-content:center;
 gap:30px;
-padding:60px 10%;
+padding:80px 10%;
 flex-wrap:wrap;
 }
 
 .card{
 
-width:250px;
+width:260px;
 padding:30px;
 border-radius:15px;
 background:rgba(255,255,255,0.1);
@@ -132,12 +132,25 @@ transition:0.3s;
 
 .card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-12px) scale(1.05);
 }
 
-.card h3{
+/* STATS */
 
-margin-bottom:10px;
+.stats{
+
+display:flex;
+justify-content:center;
+gap:50px;
+padding:60px 10%;
+text-align:center;
+flex-wrap:wrap;
+}
+
+.stat{
+
+font-size:40px;
+font-weight:bold;
 }
 
 /* CONTACT */
@@ -145,10 +158,10 @@ margin-bottom:10px;
 .contact{
 
 text-align:center;
-padding:60px 10%;
+padding:80px 10%;
 }
 
-input, textarea{
+input,textarea{
 
 width:300px;
 padding:12px;
@@ -160,23 +173,24 @@ border-radius:8px;
 footer{
 
 text-align:center;
-padding:20px;
-margin-top:40px;
+padding:30px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
 
-<div class="logo"> Utsav</div>
+<div class="logo">⚡ UltraTech</div>
 
 <ul>
 
 <li><a href="#">Home</a></li>
 <li><a href="#">Features</a></li>
+<li><a href="#">Stats</a></li>
 <li><a href="#">Contact</a></li>
 
 </ul>
@@ -185,9 +199,9 @@ margin-top:40px;
 
 <section class="hero">
 
-<h1>Ultra Modern Website</h1>
+<h1>Super Ultra Website</h1>
 
-<p>Create stunning modern websites with beautiful UI and smooth animations.</p>
+<p>Create beautiful modern websites with animations and premium design.</p>
 
 <button class="btn">Get Started</button>
 
@@ -199,7 +213,7 @@ margin-top:40px;
 
 <h3>⚡ Fast</h3>
 
-<p>Super fast and responsive website design.</p>
+<p>Optimized for speed and performance.</p>
 
 </div>
 
@@ -213,9 +227,37 @@ margin-top:40px;
 
 <div class="card">
 
-<h3>✨ Modern UI</h3>
+<h3>✨ Modern Design</h3>
 
-<p>Beautiful glassmorphism modern design.</p>
+<p>Glass UI with smooth animations.</p>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div>
+
+<div class="stat">10K+</div>
+
+Users
+
+</div>
+
+<div>
+
+<div class="stat">500+</div>
+
+Projects
+
+</div>
+
+<div>
+
+<div class="stat">24/7</div>
+
+Support
 
 </div>
 
@@ -227,7 +269,7 @@ margin-top:40px;
 
 <br>
 
-<input type="text" placeholder="Your Name">
+<input type="text" placeholder="Name">
 
 <br>
 
@@ -239,13 +281,13 @@ margin-top:40px;
 
 <br>
 
-<button class="btn">Send</button>
+<button class="btn">Send Message</button>
 
 </section>
 
 <footer>
 
-<p>© 2026 all copyright</p>
+© 2026 UltraTech Website
 
 </footer>
 
