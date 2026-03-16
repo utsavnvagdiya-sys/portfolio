@@ -1,55 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Neon Gamer</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
 body{
+margin:0;
 background:#0a0a0a;
 color:white;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
-background:#111;
-}
-
-.logo{
-font-size:26px;
-color:#00ffff;
-font-weight:bold;
+font-family:Arial;
+text-align:center;
 }
 
 .hero{
-height:90vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
-}
-
-.hero h1{
-font-size:60px;
-color:#00ffff;
-text-shadow:0 0 20px #00ffff;
 }
 
 .play-btn{
-margin-top:30px;
 padding:15px 40px;
-font-size:18px;
+font-size:20px;
 border:none;
 background:#00ffff;
 color:black;
@@ -65,77 +39,105 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.9);
 justify-content:center;
 align-items:center;
+flex-direction:column;
 }
 
-.popup-content{
+canvas{
 background:#111;
-padding:40px;
-border-radius:10px;
-text-align:center;
-border:1px solid #00ffff;
+border:2px solid #00ffff;
 }
 
 .close{
+margin-top:20px;
+padding:10px 20px;
 cursor:pointer;
-color:red;
-font-size:20px;
-position:absolute;
-top:20px;
-right:30px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
-<div class="logo">NEON GAMER</div>
-</header>
+<div class="hero">
 
-<section class="hero">
+<h1>🔥 Neon Gamer</h1>
 
-<h1>Enter The Gaming Arena</h1>
-
-<button class="play-btn" onclick="openPopup()">PLAY NOW</button>
-
-</section>
-
-<div class="popup" id="popup">
-
-<div class="popup-content">
-
-<h2>🔥 Welcome Gamer</h2>
-<p>Select your action</p>
-
-<br>
-
-<button onclick="startGame()">Start Game</button>
-
-<br><br>
-
-<button onclick="closePopup()">Close</button>
+<button class="play-btn" onclick="openGame()">PLAY NOW</button>
 
 </div>
+
+<div class="popup" id="gamePopup">
+
+<canvas id="game" width="500" height="400"></canvas>
+
+<button class="close" onclick="closeGame()">Close</button>
 
 </div>
 
 <script>
 
-function openPopup(){
-document.getElementById("popup").style.display="flex";
+let canvas = document.getElementById("game");
+let ctx = canvas.getContext("2d");
+
+let player = {x:250,y:200,size:20};
+let enemy = {x:50,y:50,size:20,speed:2};
+
+let keys = {};
+
+document.addEventListener("keydown",e=>keys[e.key]=true);
+document.addEventListener("keyup",e=>keys[e.key]=false);
+
+function openGame(){
+document.getElementById("gamePopup").style.display="flex";
 }
 
-function closePopup(){
-document.getElementById("popup").style.display="none";
+function closeGame(){
+document.getElementById("gamePopup").style.display="none";
 }
 
-function startGame(){
-alert("Game Starting Soon 🚀");
+function update(){
+
+if(keys["ArrowUp"]) player.y -= 5;
+if(keys["ArrowDown"]) player.y += 5;
+if(keys["ArrowLeft"]) player.x -= 5;
+if(keys["ArrowRight"]) player.x += 5;
+
+enemy.x += enemy.speed;
+
+if(enemy.x > 500) enemy.x = 0;
+
+let dist = Math.hypot(player.x-enemy.x,player.y-enemy.y);
+
+if(dist < 20){
+alert("Game Over 💀");
+location.reload();
 }
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,500,400);
+
+ctx.fillStyle="lime";
+ctx.fillRect(player.x,player.y,20,20);
+
+ctx.fillStyle="red";
+ctx.fillRect(enemy.x,enemy.y,20,20);
+
+}
+
+function gameLoop(){
+update();
+draw();
+requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
 
 </script>
 
