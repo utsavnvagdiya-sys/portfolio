@@ -102,22 +102,22 @@
                     <form id="mainContactForm" class="premium-form">
                         <div class="form-row">
                             <div class="input-container">
-                                <input type="text" id="name" required placeholder=" ">
+                                <input type="text" id="name" name="name" required placeholder=" ">
                                 <label for="name">Your Name</label>
                             </div>
                             <div class="input-container">
-                                <input type="email" id="email" required placeholder=" ">
+                                <input type="email" id="email" name="email" required placeholder=" ">
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
                         
                         <div class="input-container">
-                            <input type="text" id="subject" required placeholder=" ">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
                             <label for="subject">Subject</label>
                         </div>
                         
                         <div class="input-container">
-                            <textarea id="message" rows="5" required placeholder=" "></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
                             <label for="message">How can I help you?</label>
                         </div>
                         
@@ -209,13 +209,13 @@
             <p>I'm available for freelance work or full-time roles.</p>
             <form id="popupContactForm" class="popup-form">
                 <div class="input-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="input-group">
-                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="popup-submit-btn">Send Message</button>
             </form>
