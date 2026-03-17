@@ -123,23 +123,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (popupContactForm) {
-        popupContactForm.addEventListener('submit', (e) => {
+        popupContactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = popupContactForm.querySelector('.popup-submit-btn');
             const originalText = submitBtn.innerText;
-            
+
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
 
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Thank you! Your message has been sent successfully.');
-                popupContactForm.reset();
+            const formData = new FormData(popupContactForm);
+
+            try {
+                const response = await fetch("https://formspree.io/f/xnjgoqbv", { // REPLACE XXXXXX with your FormSpree ID
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    popupContactForm.reset();
+                    contactPopup.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    alert('Oops! There was a problem sending your message. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem sending your message. Please try again.');
+            } finally {
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
-                contactPopup.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }, 1500);
+            }
         });
     }
 });
@@ -182,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Skills Progress Bar Animation
 document.addEventListener('DOMContentLoaded', () => {
     const progressBars = document.querySelectorAll('.skill-bar-progress');
-    
+
     if (progressBars.length > 0) {
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -204,24 +220,40 @@ document.addEventListener('DOMContentLoaded', () => {
 // Main Contact Form Handling
 document.addEventListener('DOMContentLoaded', () => {
     const mainContactForm = document.getElementById('mainContactForm');
-    
+
     if (mainContactForm) {
-        mainContactForm.addEventListener('submit', (e) => {
+        mainContactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = mainContactForm.querySelector('.submit-btn');
             const btnText = submitBtn.querySelector('span');
             const originalText = btnText.innerText;
-            
+
             btnText.innerText = 'Sending Message...';
             submitBtn.disabled = true;
 
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Success! Your message has been sent. I will get back to you soon.');
-                mainContactForm.reset();
+            const formData = new FormData(mainContactForm);
+
+            try {
+                const response = await fetch("https://formspree.io/f/xnjgoqbv", { // REPLACE XXXXXX with your FormSpree ID
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Success! Your message has been sent. I will get back to you soon.');
+                    mainContactForm.reset();
+                } else {
+                    alert('Oops! There was a problem sending your message. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem sending your message. Please try again.');
+            } finally {
                 btnText.innerText = originalText;
                 submitBtn.disabled = false;
-            }, 1800);
+            }
         });
     }
 });
