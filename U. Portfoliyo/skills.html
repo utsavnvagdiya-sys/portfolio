@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utsav - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="45" height="45" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+                        </filter>
+                    </defs>
+                    <circle cx="60" cy="60" r="58" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.3"/>
+                    
+                    <g filter="url(#shadow)">
+                        <path d="M 35 25 L 35 70 Q 35 85 60 85 Q 85 85 85 70 L 85 25" 
+                              fill="none" stroke="url(#logoGrad)" stroke-width="8" 
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    
+                    <line x1="30" y1="20" x2="90" y2="20" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                    
+                    <circle cx="25" cy="35" r="2.5" fill="url(#logoGrad)" opacity="0.6"/>
+                    <circle cx="95" cy="35" r="2.5" fill="url(#logoGrad)" opacity="0.6"/>
+                </svg>
+                <span class="logo-text">Utsav</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+<main class="skills-main">
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My Technical Dashboard</h2>
+            
+            <div class="skills-dashboard">
+                <!-- Category 1: Frontend Development -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <span class="cat-icon">🚀</span>
+                        <h3>Core Frontend</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-card" data-proficiency="90">
+                            <div class="skill-info">
+                                <h4>HTML5 / CSS3</h4>
+                                <span class="proficiency">Expert</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="85">
+                            <div class="skill-info">
+                                <h4>JavaScript (ES6+)</h4>
+                                <span class="proficiency">Expert</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="80">
+                            <div class="skill-info">
+                                <h4>React / Next.js</h4>
+                                <span class="proficiency">Advanced</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Tools & Workflow -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <span class="cat-icon">🛠️</span>
+                        <h3>Tools & Workflow</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-card" data-proficiency="85">
+                            <div class="skill-info">
+                                <h4>Git / GitHub</h4>
+                                <span class="proficiency">Expert</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="80">
+                            <div class="skill-info">
+                                <h4>Figma / UI Design</h4>
+                                <span class="proficiency">Advanced</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="78%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="90">
+                            <div class="skill-info">
+                                <h4>VS Code / Debugging</h4>
+                                <span class="proficiency">Expert</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Professional Skills -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <span class="cat-icon">🧠</span>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-card" data-proficiency="95">
+                            <div class="skill-info">
+                                <h4>Communication</h4>
+                                <span class="proficiency">Master</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="90">
+                            <div class="skill-info">
+                                <h4>Problem Solving</h4>
+                                <span class="proficiency">Expert</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-proficiency="85">
+                            <div class="skill-info">
+                                <h4>Fast Learner</h4>
+                                <span class="proficiency">Advanced</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-progress" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="58" fill="none" stroke="url(#footerLogoGrad)" stroke-width="2" opacity="0.3"/>
+                            <g>
+                                <path d="M 35 25 L 35 70 Q 35 85 60 85 Q 85 85 85 70 L 85 25" 
+                                      fill="none" stroke="url(#footerLogoGrad)" stroke-width="8" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <line x1="30" y1="20" x2="90" y2="20" stroke="url(#footerLogoGrad)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                            <circle cx="25" cy="35" r="2.5" fill="url(#footerLogoGrad)" opacity="0.6"/>
+                            <circle cx="95" cy="35" r="2.5" fill="url(#footerLogoGrad)" opacity="0.6"/>
+                        </svg>
+                        <h3>Utsav</h3>
+                    </div>
+                    <p class="footer-desc">Frontend Developer | Creative Problem Solver</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="GitHub">
+                            <i>💻</i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i>🔗</i>
+                        </a>
+                        <a href="#" class="social-icon" title="Email">
+                            <i>📧</i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i>𝕏</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Utsav. All rights reserved.</p>
+                <p>Crafted with <span class="heart">❤</span> by Utsav</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>Get In Touch</h2>
+            <p>I'm available for freelance work or full-time roles.</p>
+            <form id="popupContactForm" class="popup-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="popup-submit-btn">Send Message</button>
+            </form>
+            <div class="popup-socials">
+                <a href="#" title="LinkedIn">🔗</a>
+                <a href="#" title="GitHub">💻</a>
+                <a href="#" title="Twitter">𝕏</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
