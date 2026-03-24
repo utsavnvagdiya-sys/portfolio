@@ -118,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "5": {
             title: "Glow Essentials",
             category: "Skincare E-Commerce",
-            image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1600",
+                        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600",
+
             description: "Glow Essentials is a premium skincare platform that marries nature with science. The website showcases a range of 100% natural products, from argan oil night creams to vitamin C complexes. <br><br>The digital experience was designed to be as clean and soothing as the products themselves, using a light, breathable layout, high-key photography, and smooth interactions that emphasize the brand's commitment to sustainability and purity.",
             tech: ["HTML5", "CSS3 Variables", "Vanilla JavaScript", "GitHub Pages", "Responsive Design"]
         }
