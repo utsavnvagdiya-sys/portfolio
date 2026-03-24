@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- SCROLL REVEAL (Intersection Observer) ---
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .separator, .separator-left, .separator-center, .separator-full');
 
     const revealOptions = {
         threshold: 0.15, // trigger when 15% visible
@@ -175,4 +175,68 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
 
+    // --- CUSTOM CURSOR LOGIC ---
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        if(cursorDot) {
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        }
+    });
+
+    function animateCursor() {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        if(cursorOutline) {
+            cursorOutline.style.left = `${outlineX}px`;
+            cursorOutline.style.top = `${outlineY}px`;
+        }
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .project-btn, .footer-social a').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if(cursorOutline) {
+                cursorOutline.style.width = '60px';
+                cursorOutline.style.height = '60px';
+                cursorOutline.style.backgroundColor = 'rgba(197, 166, 109, 0.1)';
+            }
+            if(cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(2.5)';
+        });
+        el.addEventListener('mouseleave', () => {
+            if(cursorOutline) {
+                cursorOutline.style.width = '30px';
+                cursorOutline.style.height = '30px';
+                cursorOutline.style.backgroundColor = 'transparent';
+            }
+            if(cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    });
+
+    // --- SCROLL PROGRESS BAR ---
+    const progressBar = document.querySelector('.scroll-progress');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) progressBar.style.width = `${scrolled}%`;
+    });
+
+    // --- IMAGE PARALLAX EFFECT ---
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.project-visual img').forEach(img => {
+            const parent = img.parentElement;
+            const scrollPos = window.scrollY + window.innerHeight;
+            if (scrollPos > parent.offsetTop) {
+                const shift = (window.scrollY - parent.offsetTop) * 0.15;
+                img.style.transform = `scale(1.1) translateY(${shift}px)`;
+            }
+        });
+    });
 });
