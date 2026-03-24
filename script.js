@@ -17,24 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .separator, .separator-left, .separator-center, .separator-full');
 
     const revealOptions = {
-        threshold: 0.15, // trigger when 15% visible
+        threshold: 0.05, // trigger sooner
         rootMargin: "0px 0px -50px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver(function (entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Stop observing once revealed
+                observer.unobserve(entry.target);
             }
         });
     }, revealOptions);
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
+    revealElements.forEach(el => revealOnScroll.observe(el));
 
     // --- MOBILE MENU TOGGLE ---
     const menuToggle = document.querySelector('.menu-toggle');
@@ -230,12 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- IMAGE PARALLAX EFFECT ---
     window.addEventListener('scroll', () => {
-        document.querySelectorAll('.project-visual img').forEach(img => {
+        const projectImages = document.querySelectorAll('.project-visual img');
+        projectImages.forEach(img => {
             const parent = img.parentElement;
-            const scrollPos = window.scrollY + window.innerHeight;
-            if (scrollPos > parent.offsetTop) {
-                const shift = (window.scrollY - parent.offsetTop) * 0.15;
-                img.style.transform = `scale(1.1) translateY(${shift}px)`;
+            const rect = parent.getBoundingClientRect();
+            const winHeight = window.innerHeight;
+
+            // Only animate if the element is in view
+            if (rect.top < winHeight && rect.bottom > 0) {
+                const shift = (rect.top - winHeight / 2) * -0.1;
+                // Keep shift within reasonable bounds to avoid disappearing images
+                const constrainedShift = Math.max(-80, Math.min(80, shift));
+                img.style.transform = `scale(1.1) translateY(${constrainedShift}px)`;
             }
         });
     });
