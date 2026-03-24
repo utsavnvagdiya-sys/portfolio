@@ -111,6 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=1600",
             description: "A breathtaking reservation platform for an exclusive winery and estate. Château needed a platform that invoked a sense of heritage while offering a modern booking experience. <br><br>The design utilizes classical typography, majestic imagery, and a custom-built availability calendar that feels bespoke and deeply integrated into the aesthetic.",
             tech: ["Next.js", "PostgreSQL", "Framer Motion", "Stripe API", "Node.js"]
+        },
+        "4": {
+            title: "1998 Vintage",
+            category: "Branding & Collection",
+            image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1600",
+            description: "1998 Vintage is a dedicated platform for classic car enthusiasts. The project involved creating a digital brand identity that reflects the heritage and engineering excellence of vintage automobiles. <br><br>The website features a curated gallery of high-resolution professional photography, detailed specification sheets, and a 'heritage' timeline that tells the story of each vehicle.",
+            tech: ["Vite", "Astro", "Tailwind CSS", "Intersection Observer"]
+        },
+        "5": {
+            title: "Glow Essentials",
+            category: "Skincare E-Commerce",
+            image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1600",
+            description: "Glow Essentials is a premium skincare platform that marries nature with science. The website showcases a range of 100% natural products, from argan oil night creams to vitamin C complexes. <br><br>The digital experience was designed to be as clean and soothing as the products themselves, using a light, breathable layout, high-key photography, and smooth interactions that emphasize the brand's commitment to sustainability and purity.",
+            tech: ["HTML5", "CSS3 Variables", "Vanilla JavaScript", "GitHub Pages", "Responsive Design"]
         }
     };
 
