@@ -1,3 +1,6 @@
+/* =========================================================================
+   S. DEV - CLASSIC PORTFOLIO
+   ========================================================================= */
 
 :root {
     --bg-color: #0d0c0b; /* Very dark warm gray (almost black) */
@@ -39,7 +42,51 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- NOISE TEXTURE (High-End Aesthetic) --- */
+/* --- CURSOR --- */
+.cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent);
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent);
+    mix-blend-mode: difference;
+}
+
+body:hover .cursor-dot, body:hover .cursor-outline {
+    opacity: 1;
+}
+
+/* Hide default cursor only when custom cursor is active */
+@media (pointer: fine) {
+    body { cursor: none; }
+    a, button, .project-btn { cursor: none; }
+}
+
+/* --- SCROLL PROGRESS --- */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), #fff);
+    z-index: 10001;
+}
+
+/* --- NOISE TEXTURE --- */
 .noise-overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -263,18 +310,45 @@ img {
     height: 60px;
     background-color: var(--text-muted);
     margin: 0 auto 2rem;
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.separator.active {
+    transform: scaleY(1);
+    opacity: 1;
 }
 
 .separator-left {
     width: 60px; height: 1px;
     background-color: var(--accent);
     margin: 2rem 0;
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.separator-left.active {
+    transform: scaleX(1);
+    opacity: 1;
 }
 
 .separator-center {
     width: 60px; height: 1px;
     background-color: var(--accent);
     margin: 1.5rem auto 3rem;
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: center;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.separator-center.active {
+    transform: scaleX(1);
+    opacity: 1;
 }
 
 .hero-description {
@@ -527,6 +601,56 @@ img {
     transform: scale(1.05);
 }
 
+/* --- TESTIMONIALS --- */
+.testimonials {
+    background-color: #080706;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 5rem;
+}
+
+.testimonial-item {
+    padding: 3rem;
+    border: 1px solid var(--border);
+    position: relative;
+    background: rgba(255,255,255,0.01);
+}
+
+.testimonial-text {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--text-main);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.author-name {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.author-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
 /* --- CONTACT --- */
 .contact {
     text-align: center;
@@ -656,6 +780,15 @@ img {
     height: 1px;
     background-color: var(--border);
     margin-bottom: 2rem;
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: left;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+}
+
+.separator-full.active {
+    transform: scaleX(1);
+    opacity: 1;
 }
 
 .footer-meta {
@@ -876,6 +1009,10 @@ img {
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
     }
+
+    .testimonials-grid {
+        gap: 3rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -905,5 +1042,14 @@ img {
     .footer-meta {
         flex-direction: column;
         text-align: center;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .testimonial-item {
+        padding: 2rem;
     }
 }
