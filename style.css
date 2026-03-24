@@ -296,7 +296,7 @@ img {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(13, 12, 11, 0.6), rgba(13, 12, 11, 0.6)), url('file:///d:/U.%20Portfoliyo/hero-bg.jpg');
+    background-image: linear-gradient(rgba(13, 12, 11, 0.6), rgba(13, 12, 11, 0.6)), url('file:///D:/U.%20Portfoliyo/hero-bg.png');
     background-size: cover;
     background-position: center;
     z-index: -1;
