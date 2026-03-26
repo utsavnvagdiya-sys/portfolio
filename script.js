@@ -118,10 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
         "5": {
             title: "Glow Essentials",
             category: "Skincare E-Commerce",
-                        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600",
-
+            image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600",
             description: "Glow Essentials is a premium skincare platform that marries nature with science. The website showcases a range of 100% natural products, from argan oil night creams to vitamin C complexes. <br><br>The digital experience was designed to be as clean and soothing as the products themselves, using a light, breathable layout, high-key photography, and smooth interactions that emphasize the brand's commitment to sustainability and purity.",
             tech: ["HTML5", "CSS3 Variables", "Vanilla JavaScript", "GitHub Pages", "Responsive Design"]
+        },
+        "6": {
+            title: "Grandview Realty",
+            category: "Real Estate Architecture",
+            image: "https://utsavnvagdiya-sys.github.io/Property-Listing/p4.png",
+            description: "Grandview Realty is a sophisticated property listing platform dedicated to luxury real estate. The goal was to create a digital experience that reflects the elegance and refinement of the properties themselves. <br><br>The platform features high-resolution imagery, a minimalist interface, and an intuitive search system that allows users to explore prestigious residences with ease. Every element, from typography to layout, was carefully crafted to provide a premium and seamless journey for potential homeowners.",
+            tech: ["Vanilla JavaScript", "HTML5", "CSS3", "Responsive Web Design", "UI/UX Optimization"]
         }
     };
 
