@@ -214,7 +214,7 @@ img {
     padding: 2rem 5%;
     z-index: 100;
     transition: all 0.4s ease;
-    mix-blend-mode: difference; /* Highly elegant effect against images/text */
+    mix-blend-mode: difference; 
 }
 
 .navbar.scrolled {
@@ -233,7 +233,7 @@ img {
     margin: 0 auto;
 }
 
-.logo {
+.logo { 
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 600;
@@ -251,7 +251,7 @@ img {
     letter-spacing: 0.1em;
     position: relative;
     padding: 0.5rem 0;
-}
+}   
 
 .nav-item::before {
     content: '';
@@ -338,7 +338,7 @@ img {
 }
 
 .separator.active {
-    transform: scaleY(1);
+    transform: scaleY(1);           
     opacity: 1;
 }
 
