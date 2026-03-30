@@ -13,6 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- THEME TOGGLE LOGIC ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        const themeIcon = themeToggleBtn.querySelector('i');
+        const currentTheme = localStorage.getItem('portfolio_theme');
+        
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeIcon.classList.replace('ph-sun', 'ph-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.replace('ph-sun', 'ph-moon');
+                localStorage.setItem('portfolio_theme', 'light');
+            } else {
+                themeIcon.classList.replace('ph-moon', 'ph-sun');
+                localStorage.setItem('portfolio_theme', 'dark');
+            }
+        });
+    }
+
     // --- SCROLL REVEAL (Intersection Observer) ---
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .separator, .separator-left, .separator-center, .separator-full');
 
@@ -48,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.top = '100%';
                 navLinks.style.left = '0';
                 navLinks.style.width = '100%';
-                navLinks.style.background = 'rgba(13, 12, 11, 0.95)';
+                navLinks.style.background = 'var(--bg-mobile-menu)';
                 navLinks.style.backdropFilter = 'blur(10px)';
                 navLinks.style.padding = '2rem 0';
                 navLinks.style.alignItems = 'center';
-                navLinks.style.borderBottom = '1px solid rgba(244, 236, 223, 0.08)';
+                navLinks.style.borderBottom = '1px solid var(--border)';
             }
         });
     }
@@ -153,19 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         // Show Modal
-        if(modal) modal.classList.add('active');
+        if (modal) modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scroll
     }
 
     function closeModal() {
-        if(modal) modal.classList.remove('active');
+        if (modal) modal.classList.remove('active');
         document.body.style.overflow = '';
         setTimeout(() => {
-            if(modalBody) modalBody.innerHTML = ''; // clear out after animation
+            if (modalBody) modalBody.innerHTML = ''; // clear out after animation
         }, 500); // match css transition speed
     }
 
-    if(projectBtns) {
+    if (projectBtns) {
         projectBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -186,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX; mouseY = e.clientY;
-        if(cursorDot) {
+        if (cursorDot) {
             cursorDot.style.left = `${mouseX}px`;
             cursorDot.style.top = `${mouseY}px`;
         }
@@ -195,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function animateCursor() {
         outlineX += (mouseX - outlineX) * 0.15;
         outlineY += (mouseY - outlineY) * 0.15;
-        if(cursorOutline) {
+        if (cursorOutline) {
             cursorOutline.style.left = `${outlineX}px`;
             cursorOutline.style.top = `${outlineY}px`;
         }
@@ -205,20 +228,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('a, button, .project-btn, .footer-social a').forEach(el => {
         el.addEventListener('mouseenter', () => {
-            if(cursorOutline) {
+            if (cursorOutline) {
                 cursorOutline.style.width = '60px';
                 cursorOutline.style.height = '60px';
-                cursorOutline.style.backgroundColor = 'rgba(197, 166, 109, 0.1)';
+                cursorOutline.style.backgroundColor = 'var(--accent-transparent)';
             }
-            if(cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(2.5)';
+            if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(2.5)';
         });
         el.addEventListener('mouseleave', () => {
-            if(cursorOutline) {
+            if (cursorOutline) {
                 cursorOutline.style.width = '30px';
                 cursorOutline.style.height = '30px';
                 cursorOutline.style.backgroundColor = 'transparent';
             }
-            if(cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
         });
     });
 
@@ -249,3 +272,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
