@@ -1,333 +1,448 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. Developer | Classic Portfolio</title>
-    <meta name="description" content="A premium and timeless portfolio showcasing web development projects with elegance.">
-    
-    <!-- Google Fonts: Cormorant Garamond for classic headings, Inter for clean body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>S. Developer | Classic Portfolio</title>
+        <meta name="description"
+            content="A premium and timeless portfolio showcasing web development projects with elegance.">
 
-    <div class="noise-overlay"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-    <div class="scroll-progress"></div>
+        <!-- Google Fonts: Cormorant Garamond for classic headings, Inter for clean body -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+            rel="stylesheet">
 
-    <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">UTSAV</a>
-            <nav class="nav-links">
-                <a href="#about" class="nav-item">About</a>
-                <a href="#expertise" class="nav-item">Expertise</a>
-                <a href="#works" class="nav-item">Works</a>
-                <a href="#contact" class="nav-item">Contact</a>
-            </nav>
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                <i class="ph ph-list"></i>
-            </button>
-        </div>
-    </header>
+        <link rel="stylesheet" href="style.css">
 
-    <main>
-        <!-- Home / Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content reveal-up">
-                <h1 class="hero-title">Crafting<br><i>Digital Elegance</i></h1>
-                <div class="separator"></div>
-                <p class="hero-description">Merging timeless design principles with modern web technologies to build premium and performant digital experiences.</p>
-                <a href="#works" class="btn-primary">
-                    <span>View Selected Works</span>
-                    <i class="ph ph-arrow-right"></i>
-                </a>
-            </div>
-        </section>
+        <!-- Phosphor Icons -->
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </head>
+    <body>
 
-        <!-- About Section -->
-        <section id="about" class="about section-padding">
-            <div class="container about-grid">
-                <div class="about-image-wrapper reveal-right">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="Professional Portrait" class="about-img" loading="lazy">
-                    <div class="img-accent"></div>
-                </div>
-                <div class="about-text reveal-left">
-                    <h2 class="section-title">The Artisan <br><i>Mindset</i></h2>
-                    <div class="separator-left"></div>
-                    <p>I view code not just as a set of instructions, but as a craft. Every line is an opportunity to refine, optimize, and elevate.</p>
-                    <p>With a deep appreciation for classic aesthetics and cutting-edge performance, I build websites that feel both timeless and modern. My approach focuses on micro-interactions, flawless typography, and a seamless user journey.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3>05+</h3>
-                            <p>Years of Dedication</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>40+</h3>
-                            <p>Projects Delivered</p>
-                        </div>
-                    </div>
+        <div class="noise-overlay"></div>
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+        <div class="scroll-progress"></div>
+
+        <header class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">UTSAV</a>
+                <nav class="nav-links">
+                    <a href="#about" class="nav-item">About</a>
+                    <a href="#expertise" class="nav-item">Expertise</a>
+                    <a href="#works" class="nav-item">Works</a>
+                    <a href="#contact" class="nav-item">Contact</a>
+                </nav>
+                <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
+                    <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; color: var(--text-main); font-size: 1.5rem; display: flex; align-items: center; z-index: 101; position: relative;">
+                        <i class="ph ph-sun"></i>
+                    </button>
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <i class="ph ph-list"></i>
+                    </button>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Expertise Section -->
-        <section id="expertise" class="expertise section-padding">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Areas of <br><i>Expertise</i></h2>
-                    <div class="separator-center"></div>
-                </div>
-
-                <div class="expertise-grid">
-                    <div class="expertise-card reveal-up" style="transition-delay: 100ms;">
-                        <i class="ph ph-layout icon-large"></i>
-                        <h3>Frontend Architecture</h3>
-                        <p>Structuring scalable and maintainable user interfaces using React, Vue, and vanilla JavaScript with an emphasis on clean code.</p>
-                    </div>
-                    <div class="expertise-card reveal-up" style="transition-delay: 200ms;">
-                        <i class="ph ph-paint-brush-broad icon-large"></i>
-                        <h3>UI/UX Implementation</h3>
-                        <p>Translating intricate designs into pixel-perfect, responsive reality, ensuring interactions feel fluid, natural, and premium.</p>
-                    </div>
-                    <div class="expertise-card reveal-up" style="transition-delay: 300ms;">
-                        <i class="ph ph-rocket-launch icon-large"></i>
-                        <h3>Performance Tuning</h3>
-                        <p>Optimizing web vitals, bundle sizes, and rendering strategies to provide lightning-fast, highly accessible digital products.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Selected Works Section -->
-        <section id="works" class="works section-padding">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Selected <br><i>Works</i></h2>
-                    <div class="separator-center"></div>
-                </div>
-
-                <div class="works-container">
-                    <!-- Project 1 -->
-                    <div class="project-row">
-                        <div class="project-info reveal-right">
-                            <span class="project-number">01</span>
-                            <h3 class="project-title">Maison Vue</h3>
-                            <p class="project-category">E-Commerce Architecture</p>
-                            <p class="project-desc">A luxurious digital storefront for a high-end furniture brand, featuring custom webGL product viewers, fluid page transitions, and an elegant, typographic scale.</p>
-                            <a href="#" class="btn-text project-btn" data-project="1">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-left">
-                            <div class="img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000" alt="Maison Vue Project" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-row reversed">
-                        <div class="project-info reveal-left">
-                            <span class="project-number">02</span>
-                            <h3 class="project-title">Aura Agency</h3>
-                            <p class="project-category">Corporate Identity & Web</p>
-                            <p class="project-desc">A monochromatic, sophisticated web presence for a creative agency. Built with dynamic scroll triggers, subtle noise maps, and immersive storytelling elements.</p>
-                            <a href="#" class="btn-text project-btn" data-project="2">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-right">
-                            <div class="img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" alt="Aura Agency Project" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-row">
-                        <div class="project-info reveal-right">
-                            <span class="project-number">03</span>
-                            <h3 class="project-title">Château</h3>
-                            <p class="project-category">Hospitality Platform</p>
-                            <p class="project-desc">A breathtaking reservation platform for an exclusive winery and estate. It utilizes classical typography and majestic imagery to invoke a sense of heritage.</p>
-                            <a href="#" class="btn-text project-btn" data-project="3">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-left">
-                            <div class="img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=1000" alt="Chateau Project" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 (User's Branding Website) -->
-                    <div class="project-row reversed">
-                        <div class="project-info reveal-left">
-                            <span class="project-number">04</span>
-                            <h3 class="project-title">1998 Vintage</h3>
-                            <p class="project-category">Branding & Collection</p>
-                            <p class="project-desc">A timeless legacy branding website curating the finest automotive history. A sophisticated and dark-themed platform designed for the modern connoisseur of classic cars.</p>
-                            <a href="#" class="btn-text project-btn" data-project="4">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                            <a href="https://utsavnvagdiya-sys.github.io/branding-website/" target="_blank" class="btn-text" style="margin-left: 1.5rem; color: var(--text-main);">Visit Site <i class="ph ph-arrow-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-right">
-                            <div class="img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1000" alt="1998 Vintage Car Project" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 (Skin Care) -->
-                    <div class="project-row">
-                        <div class="project-info reveal-right">
-                            <span class="project-number">05</span>
-                            <h3 class="project-title">Glow Essentials</h3>
-                            <p class="project-category">Skincare E-Commerce</p>
-                            <p class="project-desc">A minimalist and organic skincare platform focusing on natural ingredients and sustainable beauty. Built with a clean, light-themed aesthetic to reflect purity and health.</p>
-                            <a href="#" class="btn-text project-btn" data-project="5">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                            <a href="https://utsavnvagdiya-sys.github.io/Skin-Care/" target="_blank" class="btn-text" style="margin-left: 1.5rem; color: var(--text-main);">Visit Site <i class="ph ph-arrow-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-left">
-                            <div class="img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600" alt="Glow Essentials Luxury Skincare" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <!-- Project 6 (Property Listing) -->
-                    <div class="project-row reversed">
-                        <div class="project-info reveal-left">
-                            <span class="project-number">06</span>
-                            <h3 class="project-title">Grandview Realty</h3>
-                            <p class="project-category">Real Estate Architecture</p>
-                            <p class="project-desc">A premium property listing platform featuring contemporary residences and luxury estates. Designed with a focus on visual storytelling and seamless navigation for high-end clientele.</p>
-                            <a href="#" class="btn-text project-btn" data-project="6">Discover Project <i class="ph ph-arrow-up-right"></i></a>
-                            <a href="https://utsavnvagdiya-sys.github.io/Property-Listing/" target="_blank" class="btn-text" style="margin-left: 1.5rem; color: var(--text-main);">Visit Site <i class="ph ph-arrow-right"></i></a>
-                        </div>
-                        <div class="project-visual reveal-right">
-                            <div class="img-wrapper">
-                                <img src="https://utsavnvagdiya-sys.github.io/Property-Listing/p4.png" alt="Grandview Realty Luxury Project" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section-padding">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Kind <br><i>Words</i></h2>
-                    <div class="separator-center"></div>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-item reveal-up" style="transition-delay: 100ms;">
-                        <i class="ph ph-quotes icon-large"></i>
-                        <p class="testimonial-text">"Utsav's eye for detail is unparalleled. He doesn't just build websites; he crafts digital masterpieces that truly represent our brand's luxury identity."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Alex Rivera</span>
-                            <span class="author-role">Creative Director, Maison Vue</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-item reveal-up" style="transition-delay: 300ms;">
-                        <i class="ph ph-quotes icon-large"></i>
-                        <p class="testimonial-text">"The perfect blend of classic aesthetics and modern performance. A true artisan of the web who understands the importance of micro-interactions."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Sarah Chen</span>
-                            <span class="author-role">Founder, Aura Agency</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section-padding">
-            <div class="container flex-center">
-                <div class="contact-box reveal-up">
-                    <p class="contact-sub">Have a project in mind?</p>
-                    <h2 class="contact-title">Let us create something <br><i>Timeless together.</i></h2>
-                    <a href="mailto:hello@example.com" class="btn-primary btn-large">
-                        <span>Get In Touch</span>
+        <main>
+            <!-- Home / Hero Section -->
+            <section id="home" class="hero">
+                <div class="hero-content reveal-up">
+                    <h1 class="hero-title">Crafting<br><i>Digital
+                            Elegance</i></h1>
+                    <div class="separator"></div>
+                    <p class="hero-description">Merging timeless design
+                        principles with modern web technologies to build premium
+                        and performant digital experiences.</p>
+                    <a href="#works" class="btn-primary">
+                        <span>View Selected Works</span>
+                        <i class="ph ph-arrow-right"></i>
                     </a>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col brand-col">
-                <a href="#" class="footer-logo">UTSAV</a>
-                <p class="footer-tagline">Crafting digital excellence through timeless design and modern performance.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <!-- About Section -->
+            <section id="about" class="about section-padding">
+                <div class="container about-grid">
+                    <div class="about-image-wrapper reveal-right">
+                        <img
+                            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
+                            alt="Professional Portrait" class="about-img"
+                            loading="lazy">
+                        <div class="img-accent"></div>
+                    </div>
+                    <div class="about-text reveal-left">
+                        <h2 class="section-title">The Artisan
+                            <br><i>Mindset</i></h2>
+                        <div class="separator-left"></div>
+                        <p>I view code not just as a set of instructions, but as
+                            a craft. Every line is an opportunity to refine,
+                            optimize, and elevate.</p>
+                        <p>With a deep appreciation for classic aesthetics and
+                            cutting-edge performance, I build websites that feel
+                            both timeless and modern. My approach focuses on
+                            micro-interactions, flawless typography, and a
+                            seamless user journey.</p>
+
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h3>05+</h3>
+                                <p>Years of Dedication</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>40+</h3>
+                                <p>Projects Delivered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expertise Section -->
+            <section id="expertise" class="expertise section-padding">
+                <div class="container">
+                    <div class="section-header reveal-up">
+                        <h2 class="section-title">Areas of
+                            <br><i>Expertise</i></h2>
+                        <div class="separator-center"></div>
+                    </div>
+
+                    <div class="expertise-grid">
+                        <div class="expertise-card reveal-up"
+                            style="transition-delay: 100ms;">
+                            <i class="ph ph-layout icon-large"></i>
+                            <h3>Frontend Architecture</h3>
+                            <p>Structuring scalable and maintainable user
+                                interfaces using React, Vue, and vanilla
+                                JavaScript with an emphasis on clean code.</p>
+                        </div>
+                        <div class="expertise-card reveal-up"
+                            style="transition-delay: 200ms;">
+                            <i class="ph ph-paint-brush-broad icon-large"></i>
+                            <h3>UI/UX Implementation</h3>
+                            <p>Translating intricate designs into pixel-perfect,
+                                responsive reality, ensuring interactions feel
+                                fluid, natural, and premium.</p>
+                        </div>
+                        <div class="expertise-card reveal-up"
+                            style="transition-delay: 300ms;">
+                            <i class="ph ph-rocket-launch icon-large"></i>
+                            <h3>Performance Tuning</h3>
+                            <p>Optimizing web vitals, bundle sizes, and
+                                rendering strategies to provide lightning-fast,
+                                highly accessible digital products.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Selected Works Section -->
+            <section id="works" class="works section-padding">
+                <div class="container">
+                    <div class="section-header reveal-up">
+                        <h2 class="section-title">Selected <br><i>Works</i></h2>
+                        <div class="separator-center"></div>
+                    </div>
+
+                    <div class="works-container">
+                        <!-- Project 1 -->
+                        <div class="project-row">
+                            <div class="project-info reveal-right">
+                                <span class="project-number">01</span>
+                                <h3 class="project-title">Maison Vue</h3>
+                                <p class="project-category">E-Commerce
+                                    Architecture</p>
+                                <p class="project-desc">A luxurious digital
+                                    storefront for a high-end furniture brand,
+                                    featuring custom webGL product viewers,
+                                    fluid page transitions, and an elegant,
+                                    typographic scale.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="1">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-left">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000"
+                                        alt="Maison Vue Project" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-row reversed">
+                            <div class="project-info reveal-left">
+                                <span class="project-number">02</span>
+                                <h3 class="project-title">Aura Agency</h3>
+                                <p class="project-category">Corporate Identity &
+                                    Web</p>
+                                <p class="project-desc">A monochromatic,
+                                    sophisticated web presence for a creative
+                                    agency. Built with dynamic scroll triggers,
+                                    subtle noise maps, and immersive
+                                    storytelling elements.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="2">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-right">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000"
+                                        alt="Aura Agency Project"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-row">
+                            <div class="project-info reveal-right">
+                                <span class="project-number">03</span>
+                                <h3 class="project-title">Château</h3>
+                                <p class="project-category">Hospitality
+                                    Platform</p>
+                                <p class="project-desc">A breathtaking
+                                    reservation platform for an exclusive winery
+                                    and estate. It utilizes classical typography
+                                    and majestic imagery to invoke a sense of
+                                    heritage.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="3">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-left">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=1000"
+                                        alt="Chateau Project" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 (User's Branding Website) -->
+                        <div class="project-row reversed">
+                            <div class="project-info reveal-left">
+                                <span class="project-number">04</span>
+                                <h3 class="project-title">1998 Vintage</h3>
+                                <p class="project-category">Branding &
+                                    Collection</p>
+                                <p class="project-desc">A timeless legacy
+                                    branding website curating the finest
+                                    automotive history. A sophisticated and
+                                    dark-themed platform designed for the modern
+                                    connoisseur of classic cars.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="4">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                                <a
+                                    href="https://utsavnvagdiya-sys.github.io/branding-website/"
+                                    target="_blank" class="btn-text"
+                                    style="margin-left: 1.5rem; color: var(--text-main);">Visit
+                                    Site <i class="ph ph-arrow-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-right">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1000"
+                                        alt="1998 Vintage Car Project"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5 (Skin Care) -->
+                        <div class="project-row">
+                            <div class="project-info reveal-right">
+                                <span class="project-number">05</span>
+                                <h3 class="project-title">Glow Essentials</h3>
+                                <p class="project-category">Skincare
+                                    E-Commerce</p>
+                                <p class="project-desc">A minimalist and organic
+                                    skincare platform focusing on natural
+                                    ingredients and sustainable beauty. Built
+                                    with a clean, light-themed aesthetic to
+                                    reflect purity and health.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="5">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                                <a
+                                    href="https://utsavnvagdiya-sys.github.io/Skin-Care/"
+                                    target="_blank" class="btn-text"
+                                    style="margin-left: 1.5rem; color: var(--text-main);">Visit
+                                    Site <i class="ph ph-arrow-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-left">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600"
+                                        alt="Glow Essentials Luxury Skincare"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6 (Property Listing) -->
+                        <div class="project-row reversed">
+                            <div class="project-info reveal-left">
+                                <span class="project-number">06</span>
+                                <h3 class="project-title">Grandview Realty</h3>
+                                <p class="project-category">Real Estate
+                                    Architecture</p>
+                                <p class="project-desc">A premium property
+                                    listing platform featuring contemporary
+                                    residences and luxury estates. Designed with
+                                    a focus on visual storytelling and seamless
+                                    navigation for high-end clientele.</p>
+                                <a href="#" class="btn-text project-btn"
+                                    data-project="6">Discover Project <i
+                                        class="ph ph-arrow-up-right"></i></a>
+                                <a
+                                    href="https://utsavnvagdiya-sys.github.io/Property-Listing/"
+                                    target="_blank" class="btn-text"
+                                    style="margin-left: 1.5rem; color: var(--text-main);">Visit
+                                    Site <i class="ph ph-arrow-right"></i></a>
+                            </div>
+                            <div class="project-visual reveal-right">
+                                <div class="img-wrapper">
+                                    <img
+                                        src="https://utsavnvagdiya-sys.github.io/Property-Listing/p4.png"
+                                        alt="Grandview Realty Luxury Project"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="testimonials section-padding">
+                <div class="container">
+                    <div class="section-header reveal-up">
+                        <h2 class="section-title">Kind <br><i>Words</i></h2>
+                        <div class="separator-center"></div>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <div class="testimonial-item reveal-up"
+                            style="transition-delay: 100ms;">
+                            <i class="ph ph-quotes icon-large"></i>
+                            <p
+                                class="testimonial-text">"Utsav's eye for detail is unparalleled. He doesn't just build websites; he crafts digital masterpieces that truly represent our brand's luxury identity."</p>
+                            <div class="testimonial-author">
+                                <span class="author-name">Alex Rivera</span>
+                                <span class="author-role">Creative Director,
+                                    Maison Vue</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-item reveal-up"
+                            style="transition-delay: 300ms;">
+                            <i class="ph ph-quotes icon-large"></i>
+                            <p
+                                class="testimonial-text">"The perfect blend of classic aesthetics and modern performance. A true artisan of the web who understands the importance of micro-interactions."</p>
+                            <div class="testimonial-author">
+                                <span class="author-name">Sarah Chen</span>
+                                <span class="author-role">Founder, Aura
+                                    Agency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact section-padding">
+                <div class="container flex-center">
+                    <div class="contact-box reveal-up">
+                        <p class="contact-sub">Have a project in mind?</p>
+                        <h2 class="contact-title">Let us create something
+                            <br><i>Timeless together.</i></h2>
+                        <a href="mailto:hello@example.com"
+                            class="btn-primary btn-large">
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">UTSAV</a>
+                    <p class="footer-tagline">Crafting digital excellence
+                        through timeless design and modern performance.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i
+                                class="ph ph-linkedin-logo"></i></a>
+                        <a href="#" aria-label="Twitter"><i
+                                class="ph ph-twitter-logo"></i></a>
+                        <a href="#" aria-label="GitHub"><i
+                                class="ph ph-github-logo"></i></a>
+                        <a href="#" aria-label="Instagram"><i
+                                class="ph ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col links-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
+                        <li><a href="#works">Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col services-col">
+                    <h4 class="footer-heading">Expertise</h4>
+                    <ul class="footer-links">
+                        <li><a href="#expertise">Frontend Arch</a></li>
+                        <li><a href="#expertise">UI/UX Design</a></li>
+                        <li><a href="#expertise">Performance</a></li>
+                        <li><a href="#expertise">Web Artisanship</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Say Hello</h4>
+                    <a href="mailto:hello@utsav.me"
+                        class="footer-email">hello@utsav.me</a>
+                    <p class="footer-location">Based in India — Working
+                        Globally</p>
                 </div>
             </div>
-            
-            <div class="footer-col links-col">
-                <h4 class="footer-heading">Navigation</h4>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#works">Works</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
 
-            <div class="footer-col services-col">
-                <h4 class="footer-heading">Expertise</h4>
-                <ul class="footer-links">
-                    <li><a href="#expertise">Frontend Arch</a></li>
-                    <li><a href="#expertise">UI/UX Design</a></li>
-                    <li><a href="#expertise">Performance</a></li>
-                    <li><a href="#expertise">Web Artisanship</a></li>
-                </ul>
+            <div class="container footer-bottom">
+                <div class="separator-full"></div>
+                <div class="footer-meta">
+                    <span class="copyright">&copy; 2026 UTSAV. Crafted with
+                        Passion.</span>
+                    <a href="#home" class="back-to-top">
+                        <span>Back to top</span>
+                        <i class="ph ph-arrow-up"></i>
+                    </a>
+                </div>      
             </div>
+        </footer>
 
-            <div class="footer-col contact-col">
-                <h4 class="footer-heading">Say Hello</h4>
-                <a href="mailto:hello@utsav.me" class="footer-email">hello@utsav.me</a>
-                <p class="footer-location">Based in India — Working Globally</p>
+        <!-- Fullscreen Project Modal -->
+        <div id="project-modal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="close-modal" aria-label="Close Project"><i
+                        class="ph ph-x"></i></button>
+                <div class="modal-body" id="modal-body">
+                    <!-- Content injected by JS -->
+                </div>
             </div>
         </div>
 
-        <div class="container footer-bottom">
-            <div class="separator-full"></div>
-            <div class="footer-meta">
-                <span class="copyright">&copy; 2026 UTSAV. Crafted with Passion.</span>
-                <a href="#home" class="back-to-top">
-                    <span>Back to top</span>
-                    <i class="ph ph-arrow-up"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Fullscreen Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="close-modal" aria-label="Close Project"><i class="ph ph-x"></i></button>
-            <div class="modal-body" id="modal-body">
-                <!-- Content injected by JS -->
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
