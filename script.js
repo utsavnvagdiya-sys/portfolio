@@ -154,20 +154,20 @@ function files(index) {
      ./male0104.png
      ./male0105.png
      ./male0106.png
-     ./male0107.png
-     ./male0108.png
-     ./male0109.png
-     ./male0110.png
-     ./male0111.png
-     ./male0112.png
-     ./male0113.png
-     ./male0114.png
-     ./male0115.png
-     ./male0116.png
-     ./male0117.png
-     ./male0118.png
-     ./male0119.png
-     ./male0120.png
+     ./male0107.htm
+     ./male0108.htm
+     ./male0109.htm
+     ./male0110.htm
+     ./male0111.htm
+     ./male0112.htm
+     ./male0113.htm
+     ./male0114.htm
+     ./male0115.htm
+     ./male0116.htm
+     ./male0117.htm
+     ./male0118.htm
+     ./male0119.htm
+     ./male0120.htm
      ./male0121.png
      ./male0122.png
      ./male0123.png
