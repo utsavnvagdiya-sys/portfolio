@@ -1,276 +1,445 @@
+function locomotive() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true ,
+  });
+  locoScroll.on("scroll", ScrollTrigger.update);
+
+  ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
+    },
+
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
+  });
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
+}
+locomotive();
 
 
-document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
 
-    // --- NAVBAR SCROLL EFFECT ---
-    const navbar = document.getElementById('navbar');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
 
-    // --- THEME TOGGLE LOGIC ---
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-        const themeIcon = themeToggleBtn.querySelector('i');
-        const currentTheme = localStorage.getItem('portfolio_theme');
-        
-        if (currentTheme === 'light') {
-            document.body.classList.add('light-mode');
-            themeIcon.classList.replace('ph-sun', 'ph-moon');
-        }
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  render();
+});
 
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            if (document.body.classList.contains('light-mode')) {
-                themeIcon.classList.replace('ph-sun', 'ph-moon');
-                localStorage.setItem('portfolio_theme', 'light');
-            } else {
-                themeIcon.classList.replace('ph-moon', 'ph-sun');
-                localStorage.setItem('portfolio_theme', 'dark');
-            }
-        });
-    }
+function files(index) {
+  var data = `
+     ./male0001.png
+     ./male0002.png
+     ./male0003.png
+     ./male0004.png
+     ./male0005.png
+     ./male0006.png
+     ./male0007.png
+     ./male0008.png
+     ./male0009.png
+     ./male0010.png
+     ./male0011.png
+     ./male0012.png
+     ./male0013.png
+     ./male0014.png
+     ./male0015.png
+     ./male0016.png
+     ./male0017.png
+     ./male0018.png
+     ./male0019.png
+     ./male0020.png
+     ./male0021.png
+     ./male0022.png
+     ./male0023.png
+     ./male0024.png
+     ./male0025.png
+     ./male0026.png
+     ./male0027.png
+     ./male0028.png
+     ./male0029.png
+     ./male0030.png
+     ./male0031.png
+     ./male0032.png
+     ./male0033.png
+     ./male0034.png
+     ./male0035.png
+     ./male0036.png
+     ./male0037.png
+     ./male0038.png
+     ./male0039.png
+     ./male0040.png
+     ./male0041.png
+     ./male0042.png
+     ./male0043.png
+     ./male0044.png
+     ./male0045.png
+     ./male0046.png
+     ./male0047.png
+     ./male0048.png
+     ./male0049.png
+     ./male0050.png
+     ./male0051.png
+     ./male0052.png
+     ./male0053.png
+     ./male0054.png
+     ./male0055.png
+     ./male0056.png
+     ./male0057.png
+     ./male0058.png
+     ./male0059.png
+     ./male0060.png
+     ./male0061.png
+     ./male0062.png
+     ./male0063.png
+     ./male0064.png
+     ./male0065.png
+     ./male0066.png
+     ./male0067.png
+     ./male0068.png
+     ./male0069.png
+     ./male0070.png
+     ./male0071.png
+     ./male0072.png
+     ./male0073.png
+     ./male0074.png
+     ./male0075.png
+     ./male0076.png
+     ./male0077.png
+     ./male0078.png
+     ./male0079.png
+     ./male0080.png
+     ./male0081.png
+     ./male0082.png
+     ./male0083.png
+     ./male0084.png
+     ./male0085.png
+     ./male0086.png
+     ./male0087.png
+     ./male0088.png
+     ./male0089.png
+     ./male0090.png
+     ./male0091.png
+     ./male0092.png
+     ./male0093.png
+     ./male0094.png
+     ./male0095.png
+     ./male0096.png
+     ./male0097.png
+     ./male0098.png
+     ./male0099.png
+     ./male0100.png
+     ./male0101.png
+     ./male0102.png
+     ./male0103.png
+     ./male0104.png
+     ./male0105.png
+     ./male0106.png
+     ./male0107.png
+     ./male0108.png
+     ./male0109.png
+     ./male0110.png
+     ./male0111.png
+     ./male0112.png
+     ./male0113.png
+     ./male0114.png
+     ./male0115.png
+     ./male0116.png
+     ./male0117.png
+     ./male0118.png
+     ./male0119.png
+     ./male0120.png
+     ./male0121.png
+     ./male0122.png
+     ./male0123.png
+     ./male0124.png
+     ./male0125.png
+     ./male0126.png
+     ./male0127.png
+     ./male0128.png
+     ./male0129.png
+     ./male0130.png
+     ./male0131.png
+     ./male0132.png
+     ./male0133.png
+     ./male0134.png
+     ./male0135.png
+     ./male0136.png
+     ./male0137.png
+     ./male0138.png
+     ./male0139.png
+     ./male0140.png
+     ./male0141.png
+     ./male0142.png
+     ./male0143.png
+     ./male0144.png
+     ./male0145.png
+     ./male0146.png
+     ./male0147.png
+     ./male0148.png
+     ./male0149.png
+     ./male0150.png
+     ./male0151.png
+     ./male0152.png
+     ./male0153.png
+     ./male0154.png
+     ./male0155.png
+     ./male0156.png
+     ./male0157.png
+     ./male0158.png
+     ./male0159.png
+     ./male0160.png
+     ./male0161.png
+     ./male0162.png
+     ./male0163.png
+     ./male0164.png
+     ./male0165.png
+     ./male0166.png
+     ./male0167.png
+     ./male0168.png
+     ./male0169.png
+     ./male0170.png
+     ./male0171.png
+     ./male0172.png
+     ./male0173.png
+     ./male0174.png
+     ./male0175.png
+     ./male0176.png
+     ./male0177.png
+     ./male0178.png
+     ./male0179.png
+     ./male0180.png
+     ./male0181.png
+     ./male0182.png
+     ./male0183.png
+     ./male0184.png
+     ./male0185.png
+     ./male0186.png
+     ./male0187.png
+     ./male0188.png
+     ./male0189.png
+     ./male0190.png
+     ./male0191.png
+     ./male0192.png
+     ./male0193.png
+     ./male0194.png
+     ./male0195.png
+     ./male0196.png
+     ./male0197.png
+     ./male0198.png
+     ./male0199.png
+     ./male0200.png
+     ./male0201.png
+     ./male0202.png
+     ./male0203.png
+     ./male0204.png
+     ./male0205.png
+     ./male0206.png
+     ./male0207.png
+     ./male0208.png
+     ./male0209.png
+     ./male0210.png
+     ./male0211.png
+     ./male0212.png
+     ./male0213.png
+     ./male0214.png
+     ./male0215.png
+     ./male0216.png
+     ./male0217.png
+     ./male0218.png
+     ./male0219.png
+     ./male0220.png
+     ./male0221.png
+     ./male0222.png
+     ./male0223.png
+     ./male0224.png
+     ./male0225.png
+     ./male0226.png
+     ./male0227.png
+     ./male0228.png
+     ./male0229.png
+     ./male0230.png
+     ./male0231.png
+     ./male0232.png
+     ./male0233.png
+     ./male0234.png
+     ./male0235.png
+     ./male0236.png
+     ./male0237.png
+     ./male0238.png
+     ./male0239.png
+     ./male0240.png
+     ./male0241.png
+     ./male0242.png
+     ./male0243.png
+     ./male0244.png
+     ./male0245.png
+     ./male0246.png
+     ./male0247.png
+     ./male0248.png
+     ./male0249.png
+     ./male0250.png
+     ./male0251.png
+     ./male0252.png
+     ./male0253.png
+     ./male0254.png
+     ./male0255.png
+     ./male0256.png
+     ./male0257.png
+     ./male0258.png
+     ./male0259.png
+     ./male0260.png
+     ./male0261.png
+     ./male0262.png
+     ./male0263.png
+     ./male0264.png
+     ./male0265.png
+     ./male0266.png
+     ./male0267.png
+     ./male0268.png
+     ./male0269.png
+     ./male0270.png
+     ./male0271.png
+     ./male0272.png
+     ./male0273.png
+     ./male0274.png
+     ./male0275.png
+     ./male0276.png
+     ./male0277.png
+     ./male0278.png
+     ./male0279.png
+     ./male0280.png
+     ./male0281.png
+     ./male0282.png
+     ./male0283.png
+     ./male0284.png
+     ./male0285.png
+     ./male0286.png
+     ./male0287.png
+     ./male0288.png
+     ./male0289.png
+     ./male0290.png
+     ./male0291.png
+     ./male0292.png
+     ./male0293.png
+     ./male0294.png
+     ./male0295.png
+     ./male0296.png
+     ./male0297.png
+     ./male0298.png
+     ./male0299.png
+     ./male0300.png
+ `;
+  return data.split("\n")[index];
+}
 
-    // --- SCROLL REVEAL (Intersection Observer) ---
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .separator, .separator-left, .separator-center, .separator-full');
+const frameCount = 300;
 
-    const revealOptions = {
-        threshold: 0.05, // trigger sooner
-        rootMargin: "0px 0px -50px 0px"
-    };
+const images = [];
+const imageSeq = {
+  frame: 1,
+};
 
-    const revealOnScroll = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, revealOptions);
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = files(i);
+  images.push(img);
+}
 
-    revealElements.forEach(el => revealOnScroll.observe(el));
+gsap.to(imageSeq, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: `none`,
+  scrollTrigger: {
+    scrub: 0.15,
+    trigger: `#page>canvas`,
+    start: `top top`,
+    end: `600% top`,
+    scroller: `#main`,
+  },
+  onUpdate: render,
+});
 
-    // --- MOBILE MENU TOGGLE ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+images[1].onload = render;
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            // Basic toggle for mobile view
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'var(--bg-mobile-menu)';
-                navLinks.style.backdropFilter = 'blur(10px)';
-                navLinks.style.padding = '2rem 0';
-                navLinks.style.alignItems = 'center';
-                navLinks.style.borderBottom = '1px solid var(--border)';
-            }
-        });
-    }
+function render() {
+  scaleImage(images[imageSeq.frame], context);
+}
 
-    // --- CUSTOM SMOOTH SCROLL (Offset for fixed header) ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                // If mobile menu is open, close it on click
-                if (window.innerWidth <= 768 && navLinks.style.display === 'flex') {
-                    navLinks.style.display = 'none';
-                }
-
-                const navHeight = navbar.offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
-
-    // --- PROJECT MODALS LOGIC ---
-    const projectsData = {
-        "1": {
-            title: "Maison Vue",
-            category: "E-Commerce Architecture",
-            image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1600",
-            description: "Maison Vue is a luxurious digital storefront built for a high-end furniture brand. The objective was to create an elegant, seamless browsing experience that felt like flipping through a premium interior design magazine. <br><br>The project features custom webGL product viewers to inspect furniture from all angles, fluid page transitions that preserve context, and an elegant typographic scale based on Cormorant Garamond.",
-            tech: ["React.js", "Three.js", "GSAP Animations", "Tailwind CSS", "Shopify API"]
-        },
-        "2": {
-            title: "Aura Agency",
-            category: "Corporate Identity & Web",
-            image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1600",
-            description: "Aura Agency required a monochromatic, sophisticated web presence that communicated their creative expertise without overwhelming the user. <br><br>We developed a minimalist platform with dynamic scroll triggers, subtle noise maps for texture, and immersive storytelling elements that guide users through their portfolio.",
-            tech: ["Vanilla JavaScript", "HTML5 Canvas", "CSS3 Variables", "Lenis Smooth Scroll"]
-        },
-        "3": {
-            title: "Château",
-            category: "Hospitality Platform",
-            image: "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=1600",
-            description: "A breathtaking reservation platform for an exclusive winery and estate. Château needed a platform that invoked a sense of heritage while offering a modern booking experience. <br><br>The design utilizes classical typography, majestic imagery, and a custom-built availability calendar that feels bespoke and deeply integrated into the aesthetic.",
-            tech: ["Next.js", "PostgreSQL", "Framer Motion", "Stripe API", "Node.js"]
-        },
-        "4": {
-            title: "1998 Vintage",
-            category: "Branding & Collection",
-            image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1600",
-            description: "1998 Vintage is a dedicated platform for classic car enthusiasts. The project involved creating a digital brand identity that reflects the heritage and engineering excellence of vintage automobiles. <br><br>The website features a curated gallery of high-resolution professional photography, detailed specification sheets, and a 'heritage' timeline that tells the story of each vehicle.",
-            tech: ["Vite", "Astro", "Tailwind CSS", "Intersection Observer"]
-        },
-        "5": {
-            title: "Glow Essentials",
-            category: "Skincare E-Commerce",
-            image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1600",
-            description: "Glow Essentials is a premium skincare platform that marries nature with science. The website showcases a range of 100% natural products, from argan oil night creams to vitamin C complexes. <br><br>The digital experience was designed to be as clean and soothing as the products themselves, using a light, breathable layout, high-key photography, and smooth interactions that emphasize the brand's commitment to sustainability and purity.",
-            tech: ["HTML5", "CSS3 Variables", "Vanilla JavaScript", "GitHub Pages", "Responsive Design"]
-        },
-        "6": {
-            title: "Grandview Realty",
-            category: "Real Estate Architecture",
-            image: "https://utsavnvagdiya-sys.github.io/Property-Listing/p4.png",
-            description: "Grandview Realty is a sophisticated property listing platform dedicated to luxury real estate. The goal was to create a digital experience that reflects the elegance and refinement of the properties themselves. <br><br>The platform features high-resolution imagery, a minimalist interface, and an intuitive search system that allows users to explore prestigious residences with ease. Every element, from typography to layout, was carefully crafted to provide a premium and seamless journey for potential homeowners.",
-            tech: ["Vanilla JavaScript", "HTML5", "CSS3", "Responsive Web Design", "UI/UX Optimization"]
-        }
-    };
-
-    const modal = document.getElementById('project-modal');
-    const modalBody = document.getElementById('modal-body');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalOverlay = document.querySelector('.modal-overlay');
-    const projectBtns = document.querySelectorAll('.project-btn');
-
-    function openModal(projectId) {
-        const data = projectsData[projectId];
-        if (!data) return;
-
-        // Populate Modal
-        modalBody.innerHTML = `
-            <img src="${data.image}" alt="${data.title}" class="modal-hero-img" loading="lazy">
-            <p class="modal-category">${data.category}</p>
-            <h2 class="modal-title">${data.title}</h2>
-            <p class="modal-text">${data.description}</p>
-            <ul class="modal-tech-list">
-                ${data.tech.map(t => `<li>${t}</li>`).join('')}
-            </ul>
-        `;
-
-        // Show Modal
-        if (modal) modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    }
-
-    function closeModal() {
-        if (modal) modal.classList.remove('active');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            if (modalBody) modalBody.innerHTML = ''; // clear out after animation
-        }, 500); // match css transition speed
-    }
-
-    if (projectBtns) {
-        projectBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const projectId = btn.getAttribute('data-project');
-                openModal(projectId);
-            });
-        });
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
-
-    // --- CUSTOM CURSOR LOGIC ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX; mouseY = e.clientY;
-        if (cursorDot) {
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-        }
-    });
-
-    function animateCursor() {
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
-        if (cursorOutline) {
-            cursorOutline.style.left = `${outlineX}px`;
-            cursorOutline.style.top = `${outlineY}px`;
-        }
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    document.querySelectorAll('a, button, .project-btn, .footer-social a').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            if (cursorOutline) {
-                cursorOutline.style.width = '60px';
-                cursorOutline.style.height = '60px';
-                cursorOutline.style.backgroundColor = 'var(--accent-transparent)';
-            }
-            if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(2.5)';
-        });
-        el.addEventListener('mouseleave', () => {
-            if (cursorOutline) {
-                cursorOutline.style.width = '30px';
-                cursorOutline.style.height = '30px';
-                cursorOutline.style.backgroundColor = 'transparent';
-            }
-            if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
-
-    // --- SCROLL PROGRESS BAR ---
-    const progressBar = document.querySelector('.scroll-progress');
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) progressBar.style.width = `${scrolled}%`;
-    });
-
-    // --- IMAGE PARALLAX EFFECT ---
-    window.addEventListener('scroll', () => {
-        const projectImages = document.querySelectorAll('.project-visual img');
-        projectImages.forEach(img => {
-            const parent = img.parentElement;
-            const rect = parent.getBoundingClientRect();
-            const winHeight = window.innerHeight;
-
-            // Only animate if the element is in view
-            if (rect.top < winHeight && rect.bottom > 0) {
-                const shift = (rect.top - winHeight / 2) * -0.1;
-                // Keep shift within reasonable bounds to avoid disappearing images
-                const constrainedShift = Math.max(-80, Math.min(80, shift));
-                img.style.transform = `scale(1.1) translateY(${constrainedShift}px)`;
-            }
-        });
-    });
+function scaleImage(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.max(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    img,
+    0,
+    0,
+    img.width,
+    img.height,
+    centerShift_x,
+    centerShift_y,
+    img.width * ratio,
+    img.height * ratio
+  );
+}
+ScrollTrigger.create({
+  trigger: "#page>canvas",
+  pin: true,
+  // markers:true,
+  scroller: `#main`,
+  start: `top top`,
+  end: `600% top`,
 });
 
 
+
+gsap.to("#page1",{
+  scrollTrigger:{
+    trigger:`#page1`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
+gsap.to("#page2",{
+  scrollTrigger:{
+    trigger:`#page2`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
+gsap.to("#page3",{
+  scrollTrigger:{
+    trigger:`#page3`,
+    start:`top top`,
+    end:`bottom top`,
+    pin:true,
+    scroller:`#main`
+  }
+})
