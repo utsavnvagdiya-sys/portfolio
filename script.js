@@ -168,36 +168,36 @@ function files(index) {
      ./male0118.htm
      ./male0119.htm
      ./male0120.htm
-     ./male0121.png
-     ./male0122.png
-     ./male0123.png
-     ./male0124.png
-     ./male0125.png
-     ./male0126.png
-     ./male0127.png
-     ./male0128.png
-     ./male0129.png
-     ./male0130.png
-     ./male0131.png
-     ./male0132.png
-     ./male0133.png
-     ./male0134.png
-     ./male0135.png
-     ./male0136.png
-     ./male0137.png
-     ./male0138.png
-     ./male0139.png
-     ./male0140.png
-     ./male0141.png
-     ./male0142.png
-     ./male0143.png
-     ./male0144.png
-     ./male0145.png
-     ./male0146.png
-     ./male0147.png
-     ./male0148.png
-     ./male0149.png
-     ./male0150.png
+     ./male0121.htm
+     ./male0122.htm
+     ./male0123.htm
+     ./male0124.htm
+     ./male0125.htm
+     ./male0126.htm
+     ./male0127.htm
+     ./male0128.htm
+     ./male0129.htm
+     ./male0130.htm
+     ./male0131.htm
+     ./male0132.htm
+     ./male0133.htm
+     ./male0134.htm
+     ./male0135.htm
+     ./male0136.htm
+     ./male0137.htm
+     ./male0138.htm
+     ./male0139.htm
+     ./male0140.htm
+     ./male0141.htm
+     ./male0142.htm
+     ./male0143.htm
+     ./male0144.htm
+     ./male0145.htm
+     ./male0146.htm
+     ./male0147.htm
+     ./male0148.htm
+     ./male0149.htm
+     ./male0150.htm
      ./male0151.png
      ./male0152.png
      ./male0153.png
